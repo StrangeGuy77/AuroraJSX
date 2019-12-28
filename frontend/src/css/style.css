@@ -1,0 +1,23 @@
+.navigation {
+  height: 80px;
+}
+
+.navbar-logo img {
+  width: 25%;
+}
+
+.navbar-brand {
+  font: normal 23px "Cookie", cursive;
+}
+
+nav {
+  background: #004445;
+}
+
+body {
+  background: #f2f3ee;
+}
+
+.nav-hr {
+  border-top: 2px solid rgb(218, 255, 255);
+}
