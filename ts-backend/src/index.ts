@@ -1,1 +1,4 @@
-const x: number = 1;
+import "reflect-metadata";
+import { startServer } from "./startServer";
+
+startServer();
