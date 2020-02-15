@@ -7,8 +7,8 @@ import { config } from "dotenv";
 import * as session from "express-session";
 import * as connectRedis from "connect-redis";
 
-const SESSION_SECRET = "xxx";
 const RedisStore = connectRedis(session);
+const SESSION_SECRET = "xxx";
 
 export const startServer = async () => {
   config();
@@ -23,7 +23,10 @@ export const startServer = async () => {
 
   server.express.use(
     session({
-      store: new RedisStore({}),
+      store: new RedisStore({
+        client: redis as any,
+        prefix: "sess:"
+      }),
       name: "qid",
       secret: SESSION_SECRET,
       resave: false,
