@@ -1,4 +1,12 @@
-import { Entity, Column, BaseEntity, PrimaryGeneratedColumn } from "typeorm";
+import {
+  Entity,
+  Column,
+  BaseEntity,
+  PrimaryGeneratedColumn,
+  OneToOne,
+  JoinColumn
+} from "typeorm";
+import { User } from "./User";
 
 @Entity("payment")
 export class Payment extends BaseEntity {
@@ -6,8 +14,33 @@ export class Payment extends BaseEntity {
   id: string;
 
   @Column("varchar", {
-    length: 55,
-    name: "test_column"
+    array: true,
+    name: "payment_method"
   })
-  testColumn: string;
+  paymentMethod: [string];
+
+  @Column("varchar", {
+    length: 3
+  })
+  currency: string;
+
+  @Column("integer", {
+    name: "amount"
+  })
+  amount: number;
+
+  @Column("varchar", {
+    length: 55
+  })
+  name: string;
+
+  @Column("varchar", {
+    length: 55,
+    name: "description"
+  })
+  description: string;
+
+  @OneToOne(_ => User)
+  @JoinColumn()
+  user: User;
 }

@@ -1,0 +1,24 @@
+# import Error from "../../shared.graphql"
+
+type Payment {
+  amount: Int!
+  description: String!
+  currency: String!
+  payment_method: String!
+  name: String!
+  id: ID!
+}
+
+type Query {
+  _: Payment
+}
+
+type Mutation {
+  payment_registration(
+    amount: Int!
+    description: String!
+    currency: String!
+    payment_method: String!
+    name: String!
+  ): Payment!
+}

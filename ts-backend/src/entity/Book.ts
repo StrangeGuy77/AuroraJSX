@@ -67,9 +67,4 @@ export class Book extends BaseEntity {
   @OneToOne(_ => User)
   @JoinColumn()
   user: User;
-
-  @Column("varchar", {
-    length: 50
-  })
-  userUploaderName: string;
 }
